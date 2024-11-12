@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.home.HomeFragment"
+        android:label="Ubicacion de Real State Inmobiliaria"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.Inmuebles.GalleryFragment"
+        android:label="Mis Inmuebles"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.slideshow.SlideshowFragment"
+        android:label="Mis Contratos"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.perfil.PerfilFragment"
+        android:label="Editar Mi Perfil"
+        tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/nav_perfilview"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.perfil.PerfilViewFragment"
+        android:label="Mi Perfil"
+        tools:layout="@layout/fragment_nav_perfilview" />
+    <fragment
+        android:id="@+id/nav_cambioPass"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.perfil.CambioPassFragment"
+        android:label="Cambio de Contraseña"
+        tools:layout="@layout/fragment_cambio_pass" />
+    <fragment
+        android:id="@+id/detalleInmuebleFragment"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.Inmuebles.DetalleInmuebleFragment"
+        android:label="Detalles del Inmueble"
+        tools:layout="@layout/fragment_detalle_inmueble">
+        <action
+            android:id="@+id/action_detalleInmueble_to_subirFotos"
+            app:destination="@id/subirFotosFragment" />
+        <action
+            android:id="@+id/action_detalleInmueble_to_contratosFragment"
+            app:destination="@id/contratosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subirFotosFragment"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.Inmuebles.SubirFotosFragment"
+        android:label="Subir Fotos">
+        <argument
+            android:name="inmuebleId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_subirFotosFragment_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/nuevoInmuebleFragment"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.Inmuebles.NuevoInmuebleFragment"
+        android:label="Agregar Nuevo Inmueble"
+        tools:layout="@layout/fragment_nuevo_inmueble" />
+
+    <fragment
+        android:id="@+id/contratosFragment"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.Inmuebles.ContratosFragment"
+        android:label="Contratos" >
+        <action
+            android:id="@+id/action_contratosFragment_to_pagoFragment"
+            app:destination="@id/pagoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/pagoFragment"
+        android:name="com.abbysoft.inmobiliariaapp.ui.navegacion.ui.Inmuebles.PagoFragment"
+        android:label="Pagos del Contrato">
+
+        <argument
+            android:name="contratoId"
+            app:argType="integer" />
+    </fragment>
+
+
+</navigation>
